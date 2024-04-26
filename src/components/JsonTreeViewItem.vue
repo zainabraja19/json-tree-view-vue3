@@ -70,6 +70,8 @@ const getKey = (itemDate: ItemData): string => {
 }
 
 const getValue = (value: ItemData) => {
+  console.log(value)
+
   return `"${value}"`
 }
 
