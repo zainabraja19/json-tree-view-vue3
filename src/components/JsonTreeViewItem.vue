@@ -135,7 +135,7 @@ const dataValue = computed((): string => JSON.stringify(props.data.value))
       @keyup.space="onClick(data)"
     >
       <span class="value-key">{{ data.key }}:</span>
-      <span :style="{ color: getValueColor(data.value as PrimitiveTypes) }">
+      <span :style="{ color: getValueColor(data.value as PrimitiveTypes) }" :v-html="dataValue">
         {{ dataValue }}
       </span>
     </div>
