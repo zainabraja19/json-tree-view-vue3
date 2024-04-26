@@ -30,7 +30,7 @@ const P = /* @__PURE__ */ A({
     }), o = (e) => u("selected", e), c = (e) => {
       const s = Number(e.key);
       return isNaN(s) ? `"${e.key}":` : `${e.key}":`;
-    }, i = (e) => (console.log(e), `"${e}"`), r = (e) => M(typeof e).is((s) => s === "string", $("var(--jtv-string-color)")).is((s) => s === "number", $("var(--jtv-number-color)")).is((s) => s === "boolean", $("var(--jtv-boolean-color)")).is((s) => s === "object", $("var(--jtv-null-color)")).default($("var(--jtv-valueKey-color)")), h = V(() => ({
+    }, i = (e) => (console.log(e.value), `"${e.value}"`), r = (e) => M(typeof e).is((s) => s === "string", $("var(--jtv-string-color)")).is((s) => s === "number", $("var(--jtv-number-color)")).is((s) => s === "boolean", $("var(--jtv-boolean-color)")).is((s) => s === "object", $("var(--jtv-null-color)")).default($("var(--jtv-valueKey-color)")), h = V(() => ({
       "chevron-arrow": !0,
       opened: l.open
     })), b = V(() => ({

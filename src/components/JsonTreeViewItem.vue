@@ -70,9 +70,9 @@ const getKey = (itemDate: ItemData): string => {
 }
 
 const getValue = (value: ItemData) => {
-  console.log(value)
+  console.log(value.value)
 
-  return `"${value}"`
+  return `"${value.value}"`
 }
 
 const getValueColor = (value: PrimitiveTypes): string =>
