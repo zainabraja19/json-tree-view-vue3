@@ -69,6 +69,10 @@ const getKey = (itemDate: ItemData): string => {
   return !isNaN(keyValue) ? `${itemDate.key}":` : `"${itemDate.key}":`
 }
 
+const getValue = (value: ItemData) => {
+  return `"${value}"`
+}
+
 const getValueColor = (value: PrimitiveTypes): string =>
   when(typeof value)
     .is((v) => v === 'string', then('var(--jtv-string-color)'))
@@ -99,7 +103,9 @@ const lengthString = computed((): string => {
   return length === 1 ? `${length} property` : `${length} properties`
 })
 
-const dataValue = computed((): string => JSON.stringify(props.data.value))
+// const dataValue = computed((): string => JSON.stringify(props.data.value))
+
+const valueFormed = computed((): string => getValue(props.data))
 </script>
 
 <template>
@@ -135,9 +141,7 @@ const dataValue = computed((): string => JSON.stringify(props.data.value))
       @keyup.space="onClick(data)"
     >
       <span class="value-key">{{ data.key }}:</span>
-      <span :style="{ color: getValueColor(data.value as PrimitiveTypes) }" :v-html="dataValue">
-        {{ dataValue }}
-      </span>
+      <span :style="{ color: getValueColor(data.value as PrimitiveTypes) }" v-html="valueFormed" />
     </div>
   </div>
 </template>

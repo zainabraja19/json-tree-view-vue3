@@ -1,15 +1,15 @@
-import { defineComponent as C, reactive as D, computed as $, resolveComponent as N, openBlock as u, createElementBlock as y, createElementVNode as g, withModifiers as B, normalizeClass as j, createTextVNode as T, toDisplayString as b, Fragment as R, renderList as K, createBlock as A, createCommentVNode as _, withKeys as J, normalizeStyle as L } from "vue";
-const w = (t) => ({
-  is: () => w(t),
+import { defineComponent as A, reactive as D, computed as V, resolveComponent as B, openBlock as d, createElementBlock as g, createElementVNode as k, withModifiers as L, normalizeClass as w, createTextVNode as N, toDisplayString as _, Fragment as R, renderList as K, createBlock as E, createCommentVNode as j, withKeys as J, normalizeStyle as U } from "vue";
+const C = (t) => ({
+  is: () => C(t),
   default: () => t
 }), O = (t) => ({
-  is: (a, o) => a(t) ? w(o()) : O(t),
+  is: (a, n) => a(t) ? C(n()) : O(t),
   default: (a) => a()
-}), U = (t) => ({
-  is: (a, o) => a(t) ? w(o()) : O(t)
-}), k = (t) => () => t, Y = { class: "json-view-item" }, z = { key: 0 }, x = ["aria-expanded"], F = { class: "properties" }, I = { key: 0 }, M = ["role", "tabindex"], q = { class: "value-key" }, G = ["v-html"];
-var V = /* @__PURE__ */ ((t) => (t[t.OBJECT = 0] = "OBJECT", t[t.ARRAY = 1] = "ARRAY", t[t.VALUE = 2] = "VALUE", t))(V || {});
-const H = /* @__PURE__ */ C({
+}), M = (t) => ({
+  is: (a, n) => a(t) ? C(n()) : O(t)
+}), $ = (t) => () => t, Y = { class: "json-view-item" }, z = { key: 0 }, F = ["aria-expanded"], H = { class: "properties" }, x = { key: 0 }, I = ["role", "tabindex"], q = { class: "value-key" }, G = ["innerHTML"];
+var S = /* @__PURE__ */ ((t) => (t[t.OBJECT = 0] = "OBJECT", t[t.ARRAY = 1] = "ARRAY", t[t.VALUE = 2] = "VALUE", t))(S || {});
+const P = /* @__PURE__ */ A({
   name: "JsonTreeViewItem",
   __name: "JsonTreeViewItem",
   props: {
@@ -19,73 +19,73 @@ const H = /* @__PURE__ */ C({
   },
   emits: ["selected"],
   setup(t, { emit: a }) {
-    const o = t, p = a, l = D({
-      open: o.data.depth < o.maxDepth
+    const n = t, u = a, l = D({
+      open: n.data.depth < n.maxDepth
     }), m = () => {
       l.open = !l.open;
-    }, v = (e) => p("selected", {
+    }, v = (e) => u("selected", {
       key: e.key,
       value: e.value,
       path: e.path
-    }), s = (e) => p("selected", e), c = (e) => {
-      const n = Number(e.key);
-      return isNaN(n) ? `"${e.key}":` : `${e.key}":`;
-    }, i = (e) => U(typeof e).is((n) => n === "string", k("var(--jtv-string-color)")).is((n) => n === "number", k("var(--jtv-number-color)")).is((n) => n === "boolean", k("var(--jtv-boolean-color)")).is((n) => n === "object", k("var(--jtv-null-color)")).default(k("var(--jtv-valueKey-color)")), r = $(() => ({
+    }), o = (e) => u("selected", e), c = (e) => {
+      const s = Number(e.key);
+      return isNaN(s) ? `"${e.key}":` : `${e.key}":`;
+    }, i = (e) => `"${e}"`, r = (e) => M(typeof e).is((s) => s === "string", $("var(--jtv-string-color)")).is((s) => s === "number", $("var(--jtv-number-color)")).is((s) => s === "boolean", $("var(--jtv-boolean-color)")).is((s) => s === "object", $("var(--jtv-null-color)")).default($("var(--jtv-valueKey-color)")), h = V(() => ({
       "chevron-arrow": !0,
       opened: l.open
-    })), h = $(() => ({
+    })), b = V(() => ({
       "value-key": !0,
-      "can-select": o.canSelect
-    })), S = $(() => {
-      const e = o.data.length;
-      return o.data.type === 1 ? e === 1 ? `${e} element` : `${e} elements` : e === 1 ? `${e} property` : `${e} properties`;
-    }), d = $(() => JSON.stringify(o.data.value));
-    return (e, n) => {
-      const E = N("JsonTreeViewItem", !0);
-      return u(), y("div", Y, [
-        e.data.type === 0 || e.data.type === 1 ? (u(), y("div", z, [
-          g("button", {
+      "can-select": n.canSelect
+    })), p = V(() => {
+      const e = n.data.length;
+      return n.data.type === 1 ? e === 1 ? `${e} element` : `${e} elements` : e === 1 ? `${e} property` : `${e} properties`;
+    }), f = V(() => i(n.data));
+    return (e, s) => {
+      const T = B("JsonTreeViewItem", !0);
+      return d(), g("div", Y, [
+        e.data.type === 0 || e.data.type === 1 ? (d(), g("div", z, [
+          k("button", {
             class: "data-key",
             "aria-expanded": l.open ? "true" : "false",
-            onClick: B(m, ["stop"])
+            onClick: L(m, ["stop"])
           }, [
-            g("div", {
-              class: j(r.value)
+            k("div", {
+              class: w(h.value)
             }, null, 2),
-            T(" " + b(e.data.key) + ": ", 1),
-            g("span", F, b(S.value), 1)
-          ], 8, x),
-          l.open ? (u(), y("div", I, [
-            (u(!0), y(R, null, K(e.data.children, (f) => (u(), A(E, {
-              key: c(f),
-              data: f,
+            N(" " + _(e.data.key) + ": ", 1),
+            k("span", H, _(p.value), 1)
+          ], 8, F),
+          l.open ? (d(), g("div", x, [
+            (d(!0), g(R, null, K(e.data.children, (y) => (d(), E(T, {
+              key: c(y),
+              data: y,
               maxDepth: e.maxDepth,
               canSelect: e.canSelect,
-              onSelected: s
+              onSelected: o
             }, null, 8, ["data", "maxDepth", "canSelect"]))), 128))
-          ])) : _("", !0)
-        ])) : _("", !0),
-        e.data.type === 2 ? (u(), y("div", {
+          ])) : j("", !0)
+        ])) : j("", !0),
+        e.data.type === 2 ? (d(), g("div", {
           key: 1,
-          class: j(h.value),
+          class: w(b.value),
           role: e.canSelect ? "button" : void 0,
           tabindex: e.canSelect ? "0" : void 0,
-          onClick: n[0] || (n[0] = (f) => v(e.data)),
+          onClick: s[0] || (s[0] = (y) => v(e.data)),
           onKeyup: [
-            n[1] || (n[1] = J((f) => v(e.data), ["enter"])),
-            n[2] || (n[2] = J((f) => v(e.data), ["space"]))
+            s[1] || (s[1] = J((y) => v(e.data), ["enter"])),
+            s[2] || (s[2] = J((y) => v(e.data), ["space"]))
           ]
         }, [
-          g("span", q, b(e.data.key) + ":", 1),
-          g("span", {
-            style: L({ color: i(e.data.value) }),
-            "v-html": d.value
-          }, b(d.value), 13, G)
-        ], 42, M)) : _("", !0)
+          k("span", q, _(e.data.key) + ":", 1),
+          k("span", {
+            style: U({ color: r(e.data.value) }),
+            innerHTML: f.value
+          }, null, 12, G)
+        ], 42, I)) : j("", !0)
       ]);
     };
   }
-}), P = /* @__PURE__ */ C({
+}), Q = /* @__PURE__ */ A({
   name: "JsonTreeView",
   __name: "JsonTreeView",
   props: {
@@ -96,71 +96,71 @@ const H = /* @__PURE__ */ C({
   },
   emits: ["selected"],
   setup(t, { emit: a }) {
-    const o = t, p = a, l = (s) => p("selected", s), m = (s, c, i, r, h) => {
+    const n = t, u = a, l = (o) => u("selected", o), m = (o, c, i, r, h) => {
       if (c instanceof Object) {
         if (c instanceof Array) {
-          const d = c.map(
-            (e, n) => m(
-              n.toString(),
-              e,
+          const p = c.map(
+            (f, e) => m(
+              e.toString(),
+              f,
               i + 1,
-              h ? `${r}${s}[${n}].` : `${r}`,
+              h ? `${r}${o}[${e}].` : `${r}`,
               !1
             )
           );
           return {
-            key: s,
-            type: V.ARRAY,
+            key: o,
+            type: S.ARRAY,
             depth: i,
             path: r,
-            length: d.length,
-            children: d
+            length: p.length,
+            children: p
           };
         }
-        const S = Object.entries(c).map(
-          ([d, e]) => m(d, e, i + 1, h ? `${r}${s}.` : `${r}`, !0)
+        const b = Object.entries(c).map(
+          ([p, f]) => m(p, f, i + 1, h ? `${r}${o}.` : `${r}`, !0)
         );
         return {
-          key: s,
-          type: V.OBJECT,
+          key: o,
+          type: S.OBJECT,
           depth: i,
           path: r,
-          length: S.length,
-          children: S
+          length: b.length,
+          children: b
         };
       } else
         return {
-          key: s,
-          type: V.VALUE,
-          path: h ? `${r}${s}` : r.slice(0, -1),
+          key: o,
+          type: S.VALUE,
+          path: h ? `${r}${o}` : r.slice(0, -1),
           depth: i,
           value: c
         };
-    }, v = $(() => {
-      const s = JSON.parse(o.json);
-      return s instanceof Object ? m(o.rootKey, { ...s }, 0, "", !0) : {
-        key: o.rootKey,
-        type: V.VALUE,
+    }, v = V(() => {
+      const o = JSON.parse(n.json);
+      return o instanceof Object ? m(n.rootKey, { ...o }, 0, "", !0) : {
+        key: n.rootKey,
+        type: S.VALUE,
         path: "",
         depth: 0,
-        value: o.json
+        value: n.json
       };
     });
-    return (s, c) => (u(), A(H, {
-      class: j([{ "root-item": !0, dark: s.colorScheme === "dark" }]),
+    return (o, c) => (d(), E(P, {
+      class: w([{ "root-item": !0, dark: o.colorScheme === "dark" }]),
       data: v.value,
-      maxDepth: s.maxDepth,
+      maxDepth: o.maxDepth,
       onSelected: l
     }, null, 8, ["class", "data", "maxDepth"]));
   }
-}), Q = (t, a) => {
-  const o = t.__vccOpts || t;
-  for (const [p, l] of a)
-    o[p] = l;
-  return o;
-}, X = /* @__PURE__ */ Q(P, [["__scopeId", "data-v-f85384eb"]]);
+}), W = (t, a) => {
+  const n = t.__vccOpts || t;
+  for (const [u, l] of a)
+    n[u] = l;
+  return n;
+}, Z = /* @__PURE__ */ W(Q, [["__scopeId", "data-v-f85384eb"]]);
 export {
-  X as JsonTreeView,
-  H as JsonTreeViewItem
+  Z as JsonTreeView,
+  P as JsonTreeViewItem
 };
 //# sourceMappingURL=json-tree-view-vue3.es.js.map
